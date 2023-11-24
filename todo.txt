@@ -1,0 +1,2 @@
+found file appears to be in off format. there were no channel dimension.
+the file name is n01871265_6589.JPEG. will need to connect to windows via remote control to view the file.
