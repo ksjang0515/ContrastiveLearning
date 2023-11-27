@@ -3,7 +3,9 @@ include/
 lib/
 lib64
 share/
-
+checkpoint/
+loss_history.txt
+todo.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

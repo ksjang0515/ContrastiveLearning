@@ -81,7 +81,7 @@ class RandomSampler(Sampler):
         drop_last - when redundant is False, drop_last determines whether short/insufficient batch will be dropped/filled
         """
         self._prng_key = fold_in_name(prng_key, 'RandomSampler')
-        self.length = math.ceil(length/batch_size)
+        self.length = math.ceil(length/batch_size) # needs fix. should depend on drop_last
         self.batch_size = batch_size
         self.redundant = redundant
         self.drop_last = drop_last
@@ -99,7 +99,7 @@ class RandomSampler(Sampler):
 
     def __iter__(self):
         if self.redundant:
-            num_iter = math.ceil(self.length / self.batch_size)
+            num_iter = math.ceil(self.length)
             
             for _ in range(num_iter):
                 index = jax.random.randint(self.prng_key, (self.batch_size, ), 0, self.length)

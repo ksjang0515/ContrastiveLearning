@@ -79,7 +79,6 @@ class Resnet50Classifier(nn.Module):
     @nn.compact
     def __call__(self, inputs, train:bool=False):
         x = inputs
-        print(x.shape)
 
         # resnet
         x = Resnet50(
@@ -89,11 +88,9 @@ class Resnet50Classifier(nn.Module):
             conv=self.conv,
             num_filters=self.num_filters
         )(x)
-        print(x.shape)
 
         # softmax
         x = nn.activation.softmax(x)
-        print(x.shape)
 
         return x
 
